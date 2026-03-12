@@ -11,6 +11,6 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): RedirectResponse
     {
-        return $this->redirect('/frontend/');
+        return $this->redirect('/frontend/index.html');
     }
 }
