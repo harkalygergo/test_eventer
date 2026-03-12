@@ -1,5 +1,5 @@
 # TEST - Eventer
-###### v2026.03.12.2
+###### v2026.03.12.3
 
 ---
 
@@ -21,7 +21,7 @@ git clone [...]
 # go to webapp backend directory
 cd backend
 # install dependencies
-composer install
+composer install --optimize-autoloader
 # copy and modify dotenv to configure environment
 cp .env.dist .env; nano .env
 # run migrations
