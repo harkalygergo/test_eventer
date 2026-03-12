@@ -8,10 +8,6 @@ DirectoryIndex index.php
     Options +FollowSymlinks
     RewriteEngine On
 
-    # force trailing slash at the end
-    #RewriteCond %{REQUEST_FILENAME} !-f
-    #RewriteRule ^(.*)([^/])$        /$1$2/ [L,R=301]
-
     RewriteCond %{REQUEST_URI}::$0 ^(/.+)/(.*)::\2$
     RewriteRule .* - [E=BASE:%1]
     RewriteCond %{HTTP:Authorization} .+
