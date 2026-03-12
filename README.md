@@ -1,5 +1,5 @@
 # TEST - Eventer
-###### v2026.03.12.6
+###### v2026.03.12.7
 
 Eventer is a simple Symfony-based web application where users can create, edit and delete events. Just for test, not production.
 
@@ -39,6 +39,14 @@ cd public; ln -s ../../frontend;
 php bin/console app:create-demo-users
 # you can run on localhost:
 symfony serve # or: php -S localhost:8000 -t public
+```
+
+### How to update?
+
+```shell
+cd backend;
+php bin/console cache:clear;
+composer dump-autoload -o;
 ```
 
 ---
