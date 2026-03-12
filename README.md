@@ -1,5 +1,43 @@
 # TEST - Eventer
-###### v2026.03.12.1
+###### v2026.03.12.2
+
+---
+
+## Requirements
+
+- Composer
+- PHP 8.4
+- SQL
+
+---
+
+## Documentation
+
+### How to install?
+
+```shell
+# clone or download repository
+git clone [...]
+# go to webapp backend directory
+cd backend
+# install dependencies
+composer install
+# copy and modify dotenv to configure environment
+cp .env.dist .env; nano .env
+# run migrations
+php bin/console doctrine:migrations:migrate
+# create symlink for frontend in public directory
+cd public; ln -s ../../frontend;
+```
+
+### How to test?
+
+```shell
+# you can create demo users
+php bin/console app:create-demo-users
+# you can run on localhost:
+symfony serve # or: php -S localhost:8000 -t public
+```
 
 ---
 
