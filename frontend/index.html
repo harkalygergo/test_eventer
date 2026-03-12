@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+    <header>
+        <h1>Eventer</h1>
+    </header>
+    <main>
+        <section id="login-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label>
+                    Email
+                    <input type="email" id="login-email" required>
+                </label>
+                <label>
+                    Password
+                    <input type="password" id="login-password" required>
+                </label>
+                <button type="submit">Login</button>
+            </form>
+            <button id="password-reset-btn" type="button">Forgot password?</button>
+            <p id="login-error" class="error"></p>
+        </section>
+
+        <section id="app-section" class="hidden">
+            <div class="tabs">
+                <button data-tab="events" class="tab active">My Events</button>
+                <button data-tab="helpdesk" class="tab">Helpdesk</button>
+                <button data-tab="agent" class="tab" id="agent-tab" hidden>Helpdesk Agent</button>
+            </div>
+
+            <div id="tab-events" class="tab-content active">
+                <h2>My Events</h2>
+                <form id="event-form">
+                    <input type="text" id="event-title" placeholder="Title" required>
+                    <input type="datetime-local" id="event-occurs-at" required>
+                    <input type="text" id="event-description" placeholder="Description (optional)">
+                    <button type="submit">Create</button>
+                </form>
+                <ul id="events-list"></ul>
+            </div>
+
+            <div id="tab-helpdesk" class="tab-content">
+                <h2>Helpdesk Chat</h2>
+                <div id="chat-messages" class="chat-messages"></div>
+                <form id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Ask anything..." required>
+                    <button type="submit">Send</button>
+                </form>
+                <small>Type "agent" in your message to be transferred to a human.</small>
+            </div>
+
+            <div id="tab-agent" class="tab-content">
+                <h2>Helpdesk Agent Panel</h2>
+                <ul id="conversations-list"></ul>
+                <div id="agent-conversation" class="hidden">
+                    <h3 id="agent-conversation-title"></h3>
+                    <div id="agent-messages" class="chat-messages"></div>
+                    <form id="agent-reply-form">
+                        <input type="text" id="agent-reply-input" placeholder="Reply to user..." required>
+                        <button type="submit">Send reply</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="main.js"></script>
+</body>
+</html>
+

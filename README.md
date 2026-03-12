@@ -1,15 +1,20 @@
 # TEST - Eventer
+###### v2026.03.12.1
 
-## Summary
+---
+
+## Task
+
+### Summary
 
 Create a system with a separate backend and frontend, which communicate through the HTTP layer. The backend exposes a RESTful API, which is accessed by the frontend to perform various tasks.
 
-## Architecture
+### Architecture
 
  - For frontend, feature-based structure is preferred.
  - For backend, service layer structure is preferred.
 
-## Functionality
+### Functionality
 
 1. The purpose of the system is to manage events for users.
     - Events are described by their:
@@ -31,4 +36,4 @@ Create a system with a separate backend and frontend, which communicate through 
    - Bonus: Protection from various cyberattacks, OWASP Top 10 risks are addressed.
 1. The system has a help desk which understands customers' free word questions, answers them and provides transfer to a human if requested.
    - Users with a specific privilege level (helpdesk agent) can access a separate interface, on which they can see previous chats, and answer new incoming ones.
-   - Bonus: the system is also available on a voice basis (phone or web voice
+   - Bonus: the system is also available on a voice basis (phone or web voice)
