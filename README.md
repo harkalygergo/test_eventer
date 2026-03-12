@@ -1,5 +1,7 @@
 # TEST - Eventer
-###### v2026.03.12.3
+###### v2026.03.12.4
+
+Eventer is a simple Symfony-based web application where users can create, edit and delete events. Just for test, not production.
 
 ---
 
