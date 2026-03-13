@@ -1,5 +1,5 @@
 # TEST - Eventer
-###### v2026.03.12.7
+###### v2026.03.13.1
 
 Eventer is a simple Symfony-based web application where users can create, edit and delete events. Just for test, not production.
 
@@ -14,6 +14,28 @@ Eventer is a simple Symfony-based web application where users can create, edit a
 ---
 
 ## Documentation
+
+### API endpoints
+
+- User info
+   - `GET /api/me` (MeController): returns current user’s email and roles; used by the frontend right after login.
+- Events (all require auth and are per-user)
+   - `GET /api/events` – list current user’s events, ordered by occurrence time.
+   - `POST /api/events` – create event (`title`, `occursAt` in ISO or `YYYY-MM-DDTHH:MM`, optional `description`).
+   - `PATCH /api/events/{id}` – update description only of an existing event, owned by current user.
+   - `DELETE /api/events/{id}` – delete an event owned by current user.
+- Helpdesk (user side)
+   - `POST /api/helpdesk/messages`
+      - Creates or reuses an open Conversation for the current user.
+      - Stores the user message and generates a simple bot reply:
+      - If message contains “reset” and “password”: explains how to reset password and how to ask for agent.
+      - If it mentions “event”: explains where to manage events.
+      - Otherwise: generic assistant answer, with an option to ask for an agent.
+      - If the message contains "agent" (case-insensitive), conversation status is set to `waiting_agent` and bot reply explains transfer to human agent.
+      - Returns the full conversation (id, user, status, createdAt, messages).
+- Helpdesk (agent side – requires ROLE_HELPDESK)
+   - `GET /api/helpdesk/conversations` – list all conversations, newest first, with user, status and messages.
+   - `POST /api/helpdesk/conversations/{id}/reply` – add an agent reply message and reopen status to open, returning updated conversation.
 
 ### How to install?
 
